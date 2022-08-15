@@ -1,35 +1,37 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable no-use-before-define */
 /* eslint-disable react/react-in-jsx-scope */
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Hello World!!!</Text>
-      <Button title="click me" />
-      <Text style={styles.paragraphText}>More text here</Text>
+    <View style={styles.appContainer}>
+      <View style={styles.inputContainer}>
+        <TextInput style={styles.textInput} placeholder="Your Goals" />
+        <Button title="Add Goal" />
+      </View>
+      <View>
+        <Text>Goals</Text>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  appContainer: {
+    paddingTop: 50,
+    marginLeft: 10,
+    marginRight: 20,
   },
-  header: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    color: '#eeff00',
-    backgroundColor: 'black',
+  inputContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
-  paragraphText: {
-    padding: 10,
-    margin: 50,
+  textInput: {
     borderWidth: 1,
-    borderColor: 'blue',
+    borderColor: '#cccccc',
+    width: '80%',
+    marginRight: 4,
+    padding: 8,
   },
 });
