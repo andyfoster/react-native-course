@@ -2,7 +2,14 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable react/react-in-jsx-scope */
 import { useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+  Button,
+  StyleSheet,
+  Text,
+  TextInput,
+  FlatList,
+  View,
+} from 'react-native';
 
 export default function App() {
   const [enteredText, setEnteredText] = useState('');
@@ -19,7 +26,7 @@ export default function App() {
   function addGoalHandler() {
     setCourseGoals((currentCourseGoals) => [
       ...currentCourseGoals,
-      enteredText,
+      { text: enteredText, key: Math.random().toString() },
     ]);
   }
 
@@ -37,11 +44,17 @@ export default function App() {
         <Button title="Clear Goals" onPress={clearGoals} />
       </View>
       <View style={styles.goalsArea}>
-        {courseGoals.map((goal, index) => (
-          <View style={styles.goalItem} key={index}>
-            <Text style={styles.goalText}>{goal}</Text>
-          </View>
-        ))}
+        <FlatList
+          data={courseGoals}
+          renderItem={(itemData) => {
+            return (
+              <View style={styles.goalItem}>
+                <Text style={styles.goalText}>{itemData.item.text}</Text>
+              </View>
+            );
+          }}
+          alwaysBounceVertical={false}
+        />
       </View>
     </View>
   );
