@@ -16,6 +16,7 @@ export default function App() {
   }
 
   function addGoalHandler(enteredText) {
+    if (enteredText === '') return;
     setCourseGoals((currentCourseGoals) => [
       ...currentCourseGoals,
       { text: enteredText, id: Math.random().toString() },
