@@ -12,7 +12,7 @@ export default function App() {
   const [courseGoals, setCourseGoals] = useState([]);
 
   function clearGoals() {
-    // setCourseGoals([]);
+    setCourseGoals([]);
   }
 
   function addGoalHandler(enteredText) {
@@ -25,9 +25,7 @@ export default function App() {
   return (
     <View style={styles.appContainer}>
       <GoalInput onAddGoal={addGoalHandler} />
-      <View>
-        <Button title="Clear Goals" onPress={clearGoals} />
-      </View>
+
       <View style={styles.goalsArea}>
         <FlatList
           data={courseGoals}
@@ -37,6 +35,9 @@ export default function App() {
           keyExtractor={(item) => item.id}
           alwaysBounceVertical={false}
         />
+      </View>
+      <View style={styles.clearButtonArea}>
+        <Button title="Clear Goals" onPress={clearGoals} />
       </View>
     </View>
   );
@@ -51,9 +52,13 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     flex: 1,
   },
+  clearButtonArea: {
+    flex: 1,
+    marginBottom: 50,
+  },
 
   goalsArea: {
-    flex: 5,
+    flex: 8,
     paddingTop: 24,
   },
 });
