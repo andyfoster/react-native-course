@@ -1,4 +1,4 @@
-import { View, Text, Stylesheet } from react-native;
+import { View, Text, StyleSheet } from 'react-native';
 
 function GoalItem(props) {
   return (
@@ -8,7 +8,7 @@ function GoalItem(props) {
   );
 }
 
-const styles = Stylesheet.create({
+const styles = StyleSheet.create({
   goalItem: {
     padding: 8,
     margin: 8,
@@ -19,6 +19,6 @@ const styles = Stylesheet.create({
     color: 'white',
     padding: 4,
   },
-})
+});
 
 export default GoalItem;
