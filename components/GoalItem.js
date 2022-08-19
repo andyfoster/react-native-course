@@ -1,8 +1,13 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 
 function GoalItem(props) {
   return (
-    <Pressable android_ripple={} onPress={props.onDeleteItem.bind(this, props.id)}>
+    <Pressable
+      android_ripple={{ color: '#210644' }}
+      onPress={props.onDeleteItem.bind(this, props.id)}
+      style={({pressed}) => }}
+    >
       <View style={styles.goalItem}>
         <Text style={styles.goalText}>{props.text}</Text>
       </View>
@@ -21,6 +26,9 @@ const styles = StyleSheet.create({
     color: 'white',
     padding: 4,
   },
+  pressedItem: {
+    opacity: 0.5
+  }
 });
 
 export default GoalItem;
