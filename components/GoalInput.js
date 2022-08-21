@@ -28,6 +28,7 @@ function GoalInput(props) {
           source={require('../assets/images/goal.png')}
         />
         <TextInput
+          autoFocus={true}
           style={styles.textInput}
           placeholder="Your Goals"
           onChangeText={goalInputHandler}
@@ -35,10 +36,10 @@ function GoalInput(props) {
         />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title="Add" onPress={addGoalHandler} />
+            <Button title="Add" onPress={addGoalHandler} color="#b180f0" />
           </View>
           <View style={styles.button}>
-            <Button title="Cancel" color="red" onPress={props.closeModal} />
+            <Button title="Cancel" color="#f31282" onPress={props.closeModal} />
           </View>
         </View>
       </View>
@@ -72,11 +73,13 @@ const styles = StyleSheet.create({
   },
   textInput: {
     borderWidth: 1,
-    color: 'white',
-    borderColor: '#cccccc',
+    color: '#120438',
+    borderColor: '#e4d0ff',
+    backgroundColor: '#e4d0ff',
+    borderRadius: 6,
     width: '100%',
     marginRight: 4,
-    padding: 8,
+    padding: 16,
   },
   button: {
     width: '40%',

@@ -41,7 +41,7 @@ export default function App() {
 
   return (
     <View style={styles.appContainer}>
-      <Button title="Add Goal" onPress={startAddGoalHandler} color="5e0acc" />
+      <Button title="Add Goal" onPress={startAddGoalHandler} color="#a065ec" />
       <GoalInput
         closeModal={cancelAddGoalHandler}
         visible={isModalVisible}
@@ -65,7 +65,7 @@ export default function App() {
         />
       </View>
       <View style={styles.clearButtonArea}>
-        <Button title="Clear Goals" onPress={clearGoals} />
+        <Button title="Clear Goals" onPress={clearGoals} color="#a067" />
       </View>
     </View>
   );
@@ -73,8 +73,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
   appContainer: {
-    marginLeft: 20,
-    marginRight: 20,
     paddingTop: 50,
     paddingLeft: 10,
     paddingRight: 10,
