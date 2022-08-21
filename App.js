@@ -4,6 +4,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { Button, StyleSheet, FlatList, View } from 'react-native';
 import { useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
 
 import GoalItem from './components/GoalItem';
 import GoalInput from './components/GoalInput';
@@ -40,34 +41,40 @@ export default function App() {
   }
 
   return (
-    <View style={styles.appContainer}>
-      <Button title="Add Goal" onPress={startAddGoalHandler} color="#a065ec" />
-      <GoalInput
-        closeModal={cancelAddGoalHandler}
-        visible={isModalVisible}
-        onAddGoal={addGoalHandler}
-      />
-
-      <View style={styles.goalsArea}>
-        <FlatList
-          data={courseGoals}
-          renderItem={(itemData) => {
-            return (
-              <GoalItem
-                text={itemData.item.text}
-                id={itemData.item.id}
-                onDeleteItem={deleteGoalHandler}
-              />
-            );
-          }}
-          keyExtractor={(item) => item.id}
-          alwaysBounceVertical={false}
+    <>
+      <StatusBar style="light" />
+      <View style={styles.appContainer}>
+        <Button
+          title="Add Goal"
+          onPress={startAddGoalHandler}
+          color="#a065ec"
         />
+        <GoalInput
+          closeModal={cancelAddGoalHandler}
+          visible={isModalVisible}
+          onAddGoal={addGoalHandler}
+        />
+        <View style={styles.goalsArea}>
+          <FlatList
+            data={courseGoals}
+            renderItem={(itemData) => {
+              return (
+                <GoalItem
+                  text={itemData.item.text}
+                  id={itemData.item.id}
+                  onDeleteItem={deleteGoalHandler}
+                />
+              );
+            }}
+            keyExtractor={(item) => item.id}
+            alwaysBounceVertical={false}
+          />
+        </View>
+        <View style={styles.clearButtonArea}>
+          <Button title="Clear Goals" onPress={clearGoals} color="#a067" />
+        </View>
       </View>
-      <View style={styles.clearButtonArea}>
-        <Button title="Clear Goals" onPress={clearGoals} color="#a067" />
-      </View>
-    </View>
+    </>
   );
 }
 
